@@ -3,6 +3,7 @@ __pycache__
 cities.db
 .git
 .gitignore
+.Dockerignore
 
 # Logs
 logs
