@@ -30,3 +30,8 @@ cd WeatherApp
 npn run preview &
 ```
 
+## Docker
+```
+# sudo docker-compose up --build  
+```
+
