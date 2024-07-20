@@ -1,7 +1,7 @@
-venv
-__pycache__
+venv/
+__pycache__/
 .Dockerignore
 .gitignore
 cities.db
-node_modules
-dist
+node_modules/
+dist/

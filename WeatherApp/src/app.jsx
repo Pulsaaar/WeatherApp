@@ -14,7 +14,7 @@ export function App() {
   const [count, setCount] = useState([1]);
 
   const getCount = () => {
-      axios.get(`http://127.0.0.1:8000/fetch_count?city=${city}`).then(r => {
+      axios.get(`http://0.0.0.0:8000/fetch_count?city=${city}`).then(r => {
         if (r.data !== null){
           setCount(r.data['count'] + 1)
         }
@@ -25,7 +25,7 @@ export function App() {
   };
 
   const SearchCity = () => {
-    axios.get(`http://127.0.0.1:8000/search_city?desired=${value}`).then(r => {
+    axios.get(`http://0.0.0.0:8000/search_city?desired=${value}`).then(r => {
       if (r.data[0]){
         const cityNames = [];
         const uniqueCityNames = new Set();
@@ -44,7 +44,7 @@ export function App() {
   };
 
   const fetchCityWeather = () => {
-    axios.get(`http://127.0.0.1:8000/fetch_forecast?city=${city}`).then(r => {
+    axios.get(`http://0.0.0.0:8000/fetch_forecast?city=${city}`).then(r => {
         const information = r.data;
         setInfo(information);
         
