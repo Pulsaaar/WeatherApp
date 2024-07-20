@@ -2,6 +2,7 @@ venv
 __pycache__
 cities.db
 .git
+.gitignore
 
 # Logs
 logs
