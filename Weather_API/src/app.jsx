@@ -13,10 +13,14 @@ export function App() {
   const [menuItems, setMenuItems] = useState([]);
   const [count, setCount] = useState([1]);
 
-  const getCount = async () => {
+  const getCount = () => {
       axios.get(`http://127.0.0.1:8000/fetch_count?city=${city}`).then(r => {
-          console.log(r.data)
-          setCount(r.data)
+        if (r.data !== null){
+          setCount(r.data['count'])
+        }
+        else {
+          setCount([1]);
+        }
       })
   };
 
@@ -39,7 +43,7 @@ export function App() {
     })
   };
 
-  const fetchCityWeather = async () => {
+  const fetchCityWeather = () => {
     axios.get(`http://127.0.0.1:8000/fetch_forecast?city=${city}`).then(r => {
         const information = r.data;
         setInfo(information);
@@ -57,8 +61,9 @@ export function App() {
             );
         }
         setMenuItems(tempItems);
-        setWeather(information['forecast']['forecastday'][0])
-      })    
+        setWeather(information['forecast']['forecastday'][0]);
+      });
+      getCount();        
 };
   const onSelect = (value) => {
     setCity(value.split(" in ")[0]);
@@ -66,9 +71,9 @@ export function App() {
   };
 
   const onClick = () => {
-    if (value){
-      setCity(value);
-  }
+      if (value){
+        setCity(value);
+    }
   };
 
   const onChange = (data) => {
@@ -76,11 +81,7 @@ export function App() {
   };
 
   useEffect(() => {
-    const fetchData = async () => {
-        await fetchCityWeather();
-        await getCount();
-    }
-    fetchData();
+    fetchCityWeather();
   }, [city])
 
   useEffect(() => {

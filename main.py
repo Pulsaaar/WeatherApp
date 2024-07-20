@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from http_client import *
 from fastapi.middleware.cors import CORSMiddleware
 from database import create_tables, delete_tables
@@ -8,11 +8,11 @@ from contextlib import asynccontextmanager
 origins = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
-]
+] 
 
 @asynccontextmanager
 async def lifespan(app):        
-    #await delete_tables()
+    await delete_tables()
     await create_tables()
     yield
 

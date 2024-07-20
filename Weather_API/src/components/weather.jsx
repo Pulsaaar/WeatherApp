@@ -26,7 +26,7 @@ function WeatherCard(props){
                 </p>
                 <p>Temperature: {info.current.temp_c} °C</p>
                 <p>Feels: {info.current.feelslike_c} °C</p>
-                <p>How many: {count.count}</p>
+                <p>How many: {count}</p>
             </Card>
         </div>
     )
