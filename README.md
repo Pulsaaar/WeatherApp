@@ -24,6 +24,7 @@ npm run build
 ```
 
 ## Start Services
+The app runs at http://localhost:5173
 ```
 uvicorn main:app --reload &   
 cd WeatherApp
@@ -31,6 +32,7 @@ npn run preview &
 ```
 
 ## Docker
+The app runs at http://localhost:3000
 ```
 # docker-compose up --build  
 ```
